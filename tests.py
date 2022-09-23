@@ -23,7 +23,8 @@ class PartyTests(unittest.TestCase):
         """Do users who haven't RSVPed see the correct view?"""
 
         # FIXME: Add a test to show we haven't RSVP'd yet
-        print("FIXME")
+        rsvp = self.client.get("/")
+        self.assertIn(b"rsvp", rsvp.data)
 
     def test_rsvp(self):
         """Do RSVPed users see the correct view?"""
